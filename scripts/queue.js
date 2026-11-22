@@ -9,9 +9,9 @@
   tb.innerHTML = rows.length ? rows.map(function (r) {
     return '<tr><td><span class="qid">' + esc(r.id) + '</span></td><td>' + esc(r.name) + '</td><td>' + esc(r.type) + '</td>' +
       '<td><span class="qp qs-' + esc(r.status) + '">' + esc(STATUS[r.status] || r.status) + '</span></td>' +
-      '<td class="qd">' + fmt(r.date) + '</td><td class="qnote">' + esc(r.note) + '</td>' +
+      '<td class="qd">' + fmt(r.date) + '</td>' +
       '<td><span class="qp qp-' + esc(r.payment) + '">' + esc(PAYMENT[r.payment] || r.payment) + '</span></td></tr>';
-  }).join('') : '<tr><td colspan="7" class="qempty">ยังไม่มีคิว</td></tr>';
+  }).join('') : '<tr><td colspan="6" class="qempty">ยังไม่มีคิว</td></tr>';
   var cnt = document.getElementById('qcnt'); if (cnt) cnt.textContent = 'ทั้งหมด ' + rows.length + ' คิว';
   if (data.updated) {
     var u = document.getElementById('qupd');
