@@ -1,0 +1,44 @@
+/* base.css — variables, reset, typography, shared pieces
+   FONT RULE: every piece of text uses --font (IBM Plex Sans + IBM Plex Sans Thai).
+   The only exceptions are the logo wordmark (Outfit, see header.css) and the
+   hand-drawn SVG titles, which are paths, not fonts. */
+:root{
+  color-scheme: only light;
+  --font:'IBM Plex Sans','IBM Plex Sans Thai',system-ui,sans-serif;
+  --ink:#141a26;--grey:#5b6270;--line:#d9dbe0;
+  --pink:#f6a8c9;--lilac:#b7a5f2;--mint:#a6e8d4;--soft:#f4f2fb;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:80px;overflow-x:hidden;overscroll-behavior-x:none}
+body{margin:0;max-width:100%;line-height:1.6;background:#fff;color:var(--ink);font-family:var(--font);overflow-x:clip;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+main{overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lilac);outline-offset:3px;border-radius:6px}
+[hidden]{display:none!important}
+
+section.more{max-width:640px;margin:0 auto;padding:3rem 1.5rem;text-align:center}
+section.more.wide{max-width:1100px}
+section.more h2{margin:0 0 .75rem;font-weight:500;font-size:1.2rem}
+section.more p{margin:0;color:var(--grey);font-size:.95rem}
+.hint{margin-bottom:1.2rem!important}
+
+.btn{display:block;text-align:center;text-decoration:none;padding:1rem 1.2rem;border-radius:999px;font-size:1.1rem;font-weight:500;border:1.5px solid var(--line);transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.fill{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.dm{display:flex;align-items:center;justify-content:center;gap:.5rem}
+.back{display:inline-block;margin-top:1.8rem;text-decoration:none;padding:.9rem 1.8rem}
+.back.dm{display:inline-flex}
+@media (min-width:760px){.btn{padding:.9rem 1.6rem}}
+
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-5px) rotate(3deg)}}
+
+/* pink hand-drawn underline that draws itself when scrolled into view (scripts/underline.js) */
+.ul{font-weight:600;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6.5C22 3 38 8.5 60 5.2S100 3.6 118 5.8' fill='none' stroke='%23f6a8c9' stroke-width='3.4' stroke-linecap='round'/%3E%3Cpath d='M8 8.4C34 6.8 72 9.2 112 7.6' fill='none' stroke='%23f6a8c9' stroke-width='1.6' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E") no-repeat 0 100%/0 .5em;padding-bottom:calc(.5em + 1.4px);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .9s cubic-bezier(.65,0,.35,1)}
+.ul.in{background-size:100% .5em}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  #ttl path,#cs path{stroke-dashoffset:0}
+  .ul{background-size:100% .5em}}

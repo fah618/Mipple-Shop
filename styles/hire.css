@@ -1,0 +1,23 @@
+/* hire.css — booking rules & terms (single column, widens a little on desktop) */
+#hire{max-width:640px}
+.hr{max-width:720px;margin:0 auto;text-align:left;display:grid;gap:.9rem}
+.hr>div{display:grid;gap:.9rem;align-content:start;min-width:0}
+.hr h3{margin:1.8rem 0 .1rem;font-size:1.15rem;font-weight:600;text-align:center}
+.hr h4{margin:1.2rem 0 0;font-size:1.02rem;font-weight:600;text-align:center;color:var(--grey)}
+.hr p{margin:0;line-height:1.75;font-size:.98rem}
+.hr ul{margin:.5rem 0 0;padding-left:1.2rem;line-height:1.75;font-size:.98rem}
+.hr li+li{margin-top:.35rem}
+.hr .gr{color:var(--grey);font-size:.93rem}
+.hc{border:1.5px solid var(--line);border-radius:22px;padding:1.1rem 1.3rem;background:#fff}
+.hc p+p,.hc p+.hk,.hc .hk+p,.hc ul+p{margin-top:.6rem}
+section.more .hc p,section.more .hc li,section.more .hc em,section.more .hc .gr{color:var(--ink)}
+.hn{display:flex;gap:.9rem;align-items:flex-start}
+.hn>b{flex:none;display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--pink);font-weight:600;font-size:.95rem}
+.hn>div{min-width:0}
+.hn strong.t{display:block;font-size:1.02rem;margin:.15rem 0 .35rem}
+.hk{padding:.3rem 0;text-align:center;line-height:1.9}
+.hk.w{text-align:left;line-height:2.1}
+.htg{display:inline-block;padding:.1rem .75rem;border-radius:999px;font-size:.85rem;font-weight:500;margin-right:.5rem;white-space:nowrap}
+.htok{background:#d3f2c8;color:#0b5a22}.htno{background:#ff9a85;color:#7a1608}
+@media (min-width:760px){#hire{max-width:820px}#hire .hr{max-width:760px;gap:1.1rem}}
+@media (min-width:1200px){#hire{max-width:900px}#hire .hr{max-width:820px}#hire .hr p{font-size:1.02rem}}

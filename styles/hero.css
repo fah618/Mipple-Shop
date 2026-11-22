@@ -1,0 +1,29 @@
+/* hero.css — home hero: 4 polaroids around the handwritten title, butterflies on scroll */
+.hero{min-height:calc(100svh - 80px);display:grid;grid-template-columns:1fr 1.6fr 1fr;grid-template-areas:"a t b" "c t d";align-items:center;justify-items:center;gap:1.2rem clamp(.5rem,3vw,3rem);padding:1rem clamp(1rem,4vw,4rem) 3rem;max-width:1200px;margin:0 auto}
+.title{grid-area:t;text-align:center;display:flex;flex-direction:column;align-items:center}
+#ttl{width:min(86vw,500px);height:auto;display:block;margin:.6rem 0 .2rem;overflow:visible}
+#ttl path{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:wr var(--t) var(--d) cubic-bezier(.4,.1,.5,.95) forwards}
+@keyframes wr{to{stroke-dashoffset:0}}
+
+.pol{position:relative;margin:0;width:clamp(130px,21vw,240px);background:#fff;padding:7px 7px 30px;border-radius:3px;box-shadow:0 1px 2px rgba(20,26,38,.18),0 12px 24px -8px rgba(20,26,38,.3);transform:translateY(var(--y,0)) rotate(var(--r));transition:transform .35s;
+  /* scroll-away: --e (0..1) is set by scripts/scroll-fx.js */
+  translate:calc(var(--d,1)*var(--e,0)*var(--k,1)*118vw) calc(var(--e,0)*-36px);rotate:calc(var(--d,1)*var(--e,0)*30deg);opacity:calc(1 - var(--e,0)*1.15);will-change:translate,rotate,opacity}
+.pol:hover{transform:translateY(calc(var(--y,0px) - 6px)) rotate(0deg) scale(1.03)}
+.pol::before{content:"";position:absolute;top:-9px;left:50%;width:46px;height:17px;margin-left:-23px;background:rgba(246,168,201,.55);transform:rotate(-4deg);z-index:2}
+.pol:nth-of-type(even)::before{background:rgba(166,232,212,.6);transform:rotate(5deg)}
+.pol canvas{display:block;width:100%;aspect-ratio:var(--ar);background:#fff}
+.a{grid-area:a;--r:-6deg;--y:-14px;--d:-1;--k:1}
+.b{grid-area:b;--r:5deg;--y:10px;--d:1;--k:.9}
+.c{grid-area:c;--r:4deg;--y:12px;--d:-1;--k:1.12}
+.d{grid-area:d;--r:-5deg;--y:-8px;--d:1;--k:.96}
+
+/* butterflies that fly across while scrolling (the logo image) */
+.flies{position:fixed;inset:0;pointer-events:none;z-index:6;overflow:hidden}
+.fly{position:absolute;left:0;top:0;width:var(--w,64px);height:auto;opacity:0;will-change:transform,opacity;filter:drop-shadow(0 6px 8px rgba(20,26,38,.18))}
+
+@media (max-width:759px){
+  .hero{grid-template-columns:repeat(6,1fr);grid-template-areas:"a a a b b b" "w w w w w w" "c c c d d d";min-height:calc(100svh - 80px);align-content:space-evenly;gap:.75rem .5rem;padding:.4rem 1rem 1.2rem;align-items:center}
+  .title{display:contents}
+  #ttl{grid-area:w;justify-self:center;width:min(66vw,300px);margin:0}
+  .pol{justify-self:center}
+  .a,.b,.c,.d{--y:0px;width:calc(11.3svh + 14px)}}

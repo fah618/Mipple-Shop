@@ -1,0 +1,23 @@
+/* gallery.css — "other works" page: horizontally scrolling strips */
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:1.5rem;max-width:1040px;margin:1.2rem auto 0;text-align:left}
+.work{position:relative;margin:0;width:100%;max-width:520px;justify-self:center;border:1.5px solid var(--line);border-radius:22px;padding:10px;background:#fff}
+.work .sc{overflow-x:auto;border-radius:14px;scrollbar-width:none}
+.work .sc::-webkit-scrollbar{display:none}
+.work img{display:block;height:clamp(200px,52vw,260px);width:auto;max-width:none;-webkit-user-drag:none;user-select:none}
+.work.fit img{height:auto;width:100%;max-width:100%}   /* collage-style images fill the card */
+.nb{display:none}
+@media (hover:hover) and (pointer:fine){
+  .work .sc{scrollbar-width:thin;scrollbar-color:#cfd2da transparent;cursor:grab;padding-bottom:6px}
+  .work .sc.drag{cursor:grabbing}
+  .work .sc::-webkit-scrollbar{display:block;height:6px}
+  .work .sc::-webkit-scrollbar-thumb{background:#cfd2da;border-radius:6px}
+  .nb{display:grid;place-items:center;position:absolute;top:calc(50% - 18px);width:38px;height:38px;padding:0;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);cursor:pointer;opacity:0;transition:opacity .2s,transform .2s;box-shadow:0 4px 12px -4px rgba(20,26,38,.35);z-index:3}
+  .nb.prev{left:18px}.nb.next{right:18px}
+  .work:hover .nb,.nb:focus-visible{opacity:1}
+  .nb:hover{transform:scale(1.08)}
+  .nb[disabled]{opacity:0!important;pointer-events:none}}
+
+/* Google Drive card under the gallery */
+.drv{max-width:720px;margin:2rem auto 0;padding:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.drv p{margin:0;line-height:1.7}
+.drb{display:flex;flex-direction:column;gap:16px;width:min(100%,260px)}

@@ -1,0 +1,7 @@
+/* cast.css — "latest works" character carousel on the home page */
+.cast{--H:clamp(270px,74vw,560px);--P:56px;position:relative;width:100%;max-width:1100px;height:calc(var(--H) + var(--P));margin:0 auto;overflow:hidden;touch-action:pan-y;outline:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(180deg,#000 calc(100% - var(--P)),transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(180deg,#000 calc(100% - var(--P)),transparent 100%);mask-composite:intersect}
+.cast .ch{position:absolute;left:var(--x);bottom:var(--P);height:calc(var(--s)*var(--H));width:auto;max-width:none;z-index:var(--z);opacity:0;transform:translate(-50%,70px) scale(.94);filter:blur(var(--b)) brightness(var(--br,1)) contrast(var(--ct,1)) drop-shadow(0 10px 14px rgba(20,26,38,.16));transition:transform .9s cubic-bezier(.22,.8,.3,1) var(--dl),opacity .8s ease var(--dl);-webkit-user-drag:none;user-select:none;cursor:pointer}
+.cast.live .ch{transition:left .65s cubic-bezier(.22,.8,.3,1),height .65s cubic-bezier(.22,.8,.3,1),filter .65s ease,opacity .65s ease,transform .65s ease;transition-delay:0s}
+.cast.in .ch{opacity:var(--o);transform:translate(-50%,0) scale(1)}
+@media (max-width:759px){.cast .ch{filter:blur(calc(var(--b)*.6)) brightness(var(--br,1)) contrast(var(--ct,1)) drop-shadow(0 8px 10px rgba(20,26,38,.16))}}
+@media (prefers-reduced-motion:reduce){.cast .ch{opacity:var(--o);transform:translate(-50%,0)}}

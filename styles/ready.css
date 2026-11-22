@@ -1,0 +1,6 @@
+/* ready.css — "ไฟล์ชุดสำเร็จ" page (coming soon) */
+#ready{min-height:calc(100svh - 80px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+#cs{width:min(92vw,640px);height:auto;display:block;margin:0 auto;overflow:visible}
+#cs path{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 2;stroke-dashoffset:1;opacity:0;animation:wr2 var(--t) var(--d) cubic-bezier(.37,0,.63,1) forwards}
+@keyframes wr2{from{opacity:1;stroke-dashoffset:1}to{opacity:1;stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){#cs path{animation:none;stroke-dashoffset:0;opacity:1}}
