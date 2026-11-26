@@ -14,7 +14,7 @@
     { id: 'home',  label: 'หน้าหลัก',  href: 'index.html' },
     { id: 'works', label: 'รวมผลงาน',  href: 'pages/works/index.html' },
     { id: 'ready', label: 'ไฟล์ชุดสำเร็จ', href: 'pages/ready/index.html' },
-    { id: 'guide', label: 'คู่มือการใช้งานผลงาน', items: [
+    { id: 'guide', label: 'ข้อตกลงและสิทธิ์การใช้งาน', items: [
       { id: 'hire',   label: 'รายละเอียดการจ้างงานและการนำผลงานไปใช้', href: 'pages/hire/index.html' },
       { id: 'resale', label: 'การขายต่อและโอนสิทธิ์ไฟล์สกิน',          href: 'pages/resale/index.html' }
     ] }
