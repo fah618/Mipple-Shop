@@ -3,5 +3,12 @@
   "framework": null,
   "buildCommand": null,
   "installCommand": null,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/resale",
+      "destination": "/pages/resale/index.html"
+    }
+  ]
 }
