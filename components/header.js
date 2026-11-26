@@ -9,14 +9,27 @@
   var root = document.currentScript.src.replace(/components\/header\.js.*$/, '');
   var page = host.getAttribute('data-page') || 'home';
   var DISCORD = 'https://discordapp.com/users/692067760498409603';
+  // A menu entry is either a link  {id, label, href}  or a dropdown group  {id, label, items:[links]}
   var LINKS = [
-    ['home',  'หน้าหลัก',                 'index.html'],
-    ['works', 'รวมผลงาน',            'pages/works/index.html'],
-    ['ready', 'ไฟล์ชุดสำเร็จ',          'pages/ready/index.html'],
-    ['hire',  'รายละเอียดการจ้างงาน',   'pages/hire/index.html']
+    { id: 'home',  label: 'หน้าหลัก',  href: 'index.html' },
+    { id: 'works', label: 'รวมผลงาน',  href: 'pages/works/index.html' },
+    { id: 'ready', label: 'ไฟล์ชุดสำเร็จ', href: 'pages/ready/index.html' },
+    { id: 'guide', label: 'คู่มือการใช้งานผลงาน', items: [
+      { id: 'hire',   label: 'รายละเอียดการจ้างงานและการนำผลงานไปใช้', href: 'pages/hire/index.html' },
+      { id: 'resale', label: 'การขายต่อและโอนสิทธิ์ไฟล์สกิน',          href: 'pages/resale/index.html' }
+    ] }
   ];
+  var CHEVRON = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5l4 4 4-4"></path></svg>';
+  function link(l) {
+    var here = l.id === page;
+    return '<a href="' + root + l.href + '"' + (here ? ' class="on" aria-current="page"' : '') + '>' + l.label + '</a>';
+  }
   var nav = LINKS.map(function (l) {
-    return '<a href="' + root + l[2] + '"' + (l[0] === page ? ' class="on" aria-current="page"' : '') + '>' + l[1] + '</a>';
+    if (!l.items) return link(l);
+    var inside = l.items.some(function (i) { return i.id === page; });
+    return '<div class="dd">' +
+      '<button class="dd-btn' + (inside ? ' on' : '') + '" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="dd-' + l.id + '">' + l.label + CHEVRON + '</button>' +
+      '<div class="dd-panel" id="dd-' + l.id + '">' + l.items.map(link).join('') + '</div></div>';
   }).join('');
 
   host.className = 'bar';
@@ -36,6 +49,25 @@
     var open = menu.classList.toggle('open');
     mb.setAttribute('aria-expanded', open);
   });
+  // dropdown groups: click / tap to open, click outside or Esc to close
+  var groups = [].slice.call(host.querySelectorAll('.dd'));
+  function closeGroups(except) {
+    groups.forEach(function (g) {
+      if (g === except) return;
+      g.classList.remove('open'); g.querySelector('.dd-btn').setAttribute('aria-expanded', 'false');
+    });
+  }
+  groups.forEach(function (g) {
+    var b = g.querySelector('.dd-btn');
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = g.classList.toggle('open');
+      b.setAttribute('aria-expanded', open); closeGroups(g);
+    });
+  });
+  document.addEventListener('click', function () { closeGroups(null); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeGroups(null); });
+
   var f = function () { host.classList.toggle('stuck', window.scrollY > 12); };
   addEventListener('scroll', f, { passive: true });
   f();
