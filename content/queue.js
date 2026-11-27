@@ -5,7 +5,7 @@
    date   : expected finish date, YYYY-MM-DD
    updated: set to today's date when you change something (shown above the table), or null */
 window.MIPPLE_QUEUE = {
-  "updated": "2026-11-23T14:50:37.096Z",
+  "updated": "2026-11-27T09:02:30.874Z",
   "rows": [
     {"id":"MP251029-02","name":"lucky roux","type":"ชุดหมวกแมลงวาฬ วุธดาว","status":"done","date":"2026-11-01","payment":"full"},
     {"id":"MP251029-03","name":"Mahoraga","type":"เซต 70 ต่าย","status":"done","date":"2026-11-03","payment":"full"},
@@ -18,7 +18,7 @@ window.MIPPLE_QUEUE = {
     {"id":"MP251102-02","name":"Sailor moon","type":"เซตแมลงแกะ","status":"done","date":"2026-11-17","payment":"full"},
     {"id":"MP251106-01","name":"Makima suit","type":"เซตแมลงแกะ","status":"done","date":"2026-11-19","payment":"dep"},
     {"id":"MP251106-02","name":"Makima private","type":"เซต 60 แกะ","status":"done","date":"2026-11-21","payment":"dep"},
-    {"id":"MP251123-01","name":"Chocola","type":"วุธผีต่าย","status":"wip","date":"2026-11-25","payment":"full"},
-    {"id":"MP251123-02","name":"lena86","type":"เซตแมลงต่าย","status":"wait","date":"2026-11-27","payment":"full"}
+    {"id":"MP251123-01","name":"Chocola","type":"วุธผีต่าย","status":"done","date":"2026-11-25","payment":"full"},
+    {"id":"MP251123-02","name":"lena86","type":"เซตแมลงต่าย","status":"done","date":"2026-11-27","payment":"full"}
   ]
 };

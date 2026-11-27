@@ -44,6 +44,30 @@
         '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"></path></svg></button></div>' +
     '<nav id="menu" aria-label="เมนูหลัก">' + nav + '</nav>';
 
+  // "สั่งทำชุดเลย!" popup while orders are closed. Set ORDERS_CLOSED to false to reopen (the button then goes straight to Discord).
+  var ORDERS_CLOSED = true;
+  var CLOSED_TITLE = 'ปิดรับออเดอร์ชั่วคราว';
+  var CLOSED_MSG = 'ขออภัยค่ะ ขณะนี้ทางร้านปิดรับออเดอร์งานสกินชั่วคราว และจะเปิดรับอีกครั้งในวันที่ 7 ธันวาคม';
+  var CLOSED_THANKS = 'ขอบคุณทุกท่านที่สนใจและสนับสนุนทางร้านนะคะ ♡';
+  var cta = host.querySelector('.cta');
+  if (ORDERS_CLOSED && cta) {
+    var dlg = document.createElement('dialog');
+    dlg.className = 'pop';
+    dlg.setAttribute('aria-labelledby', 'pop-t');
+    dlg.innerHTML = '<div class="pop-in"><h2 class="pop-t" id="pop-t"></h2><p class="pop-m"></p><p class="pop-th"></p><button class="pop-ok" type="button">ตกลง</button></div>';
+    dlg.querySelector('.pop-t').textContent = CLOSED_TITLE;
+    dlg.querySelector('.pop-m').textContent = CLOSED_MSG;
+    dlg.querySelector('.pop-th').textContent = CLOSED_THANKS;
+    document.body.appendChild(dlg);
+    cta.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+    });
+    function closePop() { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+    dlg.querySelector('.pop-ok').addEventListener('click', closePop);
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) closePop(); }); // click on the dim backdrop
+  }
+
   var mb = host.querySelector('.mb'), menu = host.querySelector('#menu');
   mb.addEventListener('click', function () {
     var open = menu.classList.toggle('open');

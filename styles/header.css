@@ -38,3 +38,16 @@
   .dd-btn{width:auto;justify-content:flex-start;padding:.5rem .9rem;font-size:1rem}
   .dd-panel{position:absolute;top:calc(100% + .7rem);right:0;z-index:30;width:max-content;min-width:380px;max-width:min(92vw,420px);padding:.6rem;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 40px -16px rgba(20,26,38,.28),0 2px 8px rgba(20,26,38,.06)}
   #menu .dd-panel a{padding:.7rem .8rem}}
+
+/* popup shown by the "สั่งทำชุดเลย!" button while orders are closed */
+.pop{border:0;padding:0;background:none;max-width:min(92vw,420px);width:100%;color:var(--ink);overflow:visible}
+.pop::backdrop{background:rgba(20,26,38,.45)}
+.pop[open]{animation:pop-in .22s ease-out}
+.pop-in{background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.6rem 1.4rem 1.3rem;text-align:center;box-shadow:0 18px 40px -16px rgba(20,26,38,.35)}
+.pop-t{margin:0 0 .7rem;font-size:1.3rem;font-weight:600;line-height:1.4}
+.pop-m{margin:0 0 .9rem;font-size:1rem;line-height:1.75}
+.pop-th{margin:0 0 1.3rem;font-size:.95rem;line-height:1.7;font-weight:500;color:var(--ink);}
+.pop-ok{min-height:44px;padding:0 1.8rem;border:0;border-radius:999px;background:var(--ink);color:#fff;font:500 .95rem var(--font);cursor:pointer;transition:transform .2s}
+.pop-ok:hover{transform:translateY(-2px)}
+@keyframes pop-in{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.pop[open]{animation:none}.pop-ok{transition:none}.pop-ok:hover{transform:none}}
