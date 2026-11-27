@@ -1,7 +1,7 @@
 /* hire.css — booking rules & terms (single column, widens a little on desktop) */
 #hire,#resale{max-width:640px}
-.hr{max-width:720px;margin:0 auto;text-align:left;display:grid;gap:.9rem}
-.hr>div{display:grid;gap:.9rem;align-content:start;min-width:0}
+.hr{max-width:720px;margin:0 auto;text-align:left;display:grid;grid-template-columns:minmax(0,1fr);gap:.9rem}
+.hr>div{display:grid;grid-template-columns:minmax(0,1fr);gap:.9rem;align-content:start;min-width:0}
 .hr h3{margin:1.8rem 0 .1rem;font-size:1.15rem;font-weight:600;text-align:center}
 .hr h4{margin:1.2rem 0 0;font-size:1.02rem;font-weight:600;text-align:center;color:var(--grey)}
 .hr p{margin:0;line-height:1.75;font-size:.98rem}
