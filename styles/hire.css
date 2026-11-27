@@ -33,7 +33,7 @@ section.more .hc-h p,section.more .hc-h li,section.more .hc-h em,section.more .h
 .cp-bt .ic{width:1.05em;height:1.05em;flex:none}
 .cp-bt .ic-ok,.cp-bt.ok .ic-copy{display:none}
 .cp-bt.ok .ic-ok{display:block}
-.cp-bt.ok{background:#d3f2c8;border-color:#d3f2c8;color:#0b5a22}
+.cp-bt.ok{background:#ffffff;border-color:#000000;color:#000000}
 @media (prefers-reduced-motion:reduce){.cp-bt{transition:none}.cp-bt:hover{transform:none}}
 .hk{padding:.3rem 0;text-align:center;line-height:1.9}
 .hk.w{text-align:center;line-height:2.1}
